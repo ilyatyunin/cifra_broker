@@ -15,20 +15,9 @@ public class TestBase {
     @BeforeAll
     static void firstConfigure() {
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
-
-
     }
     @BeforeEach
     void addListener() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-    }
-
-    @AfterEach
-    void addAttachments() {
-        Attach.screenshotAs("Last Screeshot");
-        Attach.pageSource();
-        Attach.browserConsoleLogs();
-        Attach.addVideo();
-        Attach.getVideoUrl();
     }
 }
