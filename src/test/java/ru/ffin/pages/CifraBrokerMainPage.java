@@ -13,17 +13,22 @@ public class CifraBrokerMainPage {
     SelenideElement MainContainer = $(".main__inner");
     SelenideElement ButtonTradernet = $(".header__profile .btn-login");
     SelenideElement ButtonCifraBank = $("a[href='https://cifra-bank.ru/'].menu__link");
+    SelenideElement LinkAbout = $("[href='/about']");
+    SelenideElement LinkJob = $(".submenu-wrap [href='https://job.cifra-broker.ru/']");
     SelenideElement ButtonOpenAccount = $(byTagAndText("button", "Открыть счет"));
     SelenideElement ButtonSubmitOpenAccount = $(byTagAndText("button", "Отправить"));
+    SelenideElement LinkUploadDoc = $(".footer-green [type='file']");
+    SelenideElement LinkFileName = $(".footer-green .custom-file-upload__value");
     SelenideElement FormOpenAccount = $("[name='formOpenAccount']");
     SelenideElement CookieConsentAlert = $(".b-alert");
     SelenideElement ButtonAcceptCookie = $(byTagAndText("button", "Принять"));
+    public SelenideElement ResumeForm = $(byTagAndText("h3", "Не нашли вакансию?"));
     SelenideElement PlaceHolderEmail = $("[placeholder='Email']");
     SelenideElement PlaceHolderPassword = $("[placeholder='Пароль']");
     SelenideElement ButtonSubmitCredentials = $("[type='submit']");
 
 
-    public CifraBrokerMainPage openCifraBankPage() {
+    public CifraBrokerMainPage openCifraBrokerPage() {
         open("https://cifra-broker.ru/");
         return this;
     }
@@ -38,6 +43,23 @@ public class CifraBrokerMainPage {
     }
     public CifraBrokerMainPage goToCifraBankRu() {
         ButtonCifraBank.click();
+        return this;
+    }
+    public CifraBrokerMainPage goToJobCifraBrokerRu() {
+        LinkAbout.hover();
+        LinkJob.click();
+        return this;
+    }
+    public CifraBrokerMainPage uploadDoc(String fileName) {
+        LinkUploadDoc.uploadFromClasspath(fileName);
+        return this;
+    }
+    public CifraBrokerMainPage scrollToElement(SelenideElement selenideElement) {
+        selenideElement.scrollTo();
+        return this;
+    }
+    public CifraBrokerMainPage checkFileName(String fileName) {
+        LinkFileName.shouldHave(text(fileName));
         return this;
     }
 

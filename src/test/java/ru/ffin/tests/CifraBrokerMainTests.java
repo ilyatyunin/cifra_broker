@@ -9,6 +9,8 @@ import org.junit.jupiter.params.provider.ValueSource;
 import ru.ffin.pages.CifraBankMainPage;
 import ru.ffin.pages.CifraBrokerMainPage;
 
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.sleep;
 import static io.qameta.allure.Allure.step;
 
 public class CifraBrokerMainTests extends TestBase {
@@ -23,13 +25,37 @@ public class CifraBrokerMainTests extends TestBase {
             "Новости компании"
     })
     @ParameterizedTest(name = "Проверка заголовка {0} на главной странице")
-    @DisplayName("Отображение основных разделов на Главной странице")
+    @DisplayName("Наличие основных разделов на Главной странице")
     void checkPrimarySectionsOnMainPage(String section) {
         step("Открыть главную страницу", () -> {
-            cifraBrokerMainPage.openCifraBankPage();
+            cifraBrokerMainPage.openCifraBrokerPage();
         });
         step("Проверить наличие заголовка " + section, () -> {
             cifraBrokerMainPage.checkSection(section);
+        });
+    }
+
+    String fileName = "resume.pdf";
+    @Test
+    @DisplayName("Загрузка файла с резюме .pdf на странице https://job.cifra-broker.ru/")
+    void uploadPdfForResume() {
+        step("Открыть главную страницу", () -> {
+            cifraBrokerMainPage.openCifraBrokerPage();
+        });
+        step("Перейти на сайт job.cifra-broker.ru", () -> {
+            cifraBrokerMainPage.goToJobCifraBrokerRu();
+        });
+        step("Переключиться на вторую вкладку", () -> {
+            cifraBankMainPage.switchSecondTab();
+        });
+        step("Скролл до формы с загрузкой файла", () -> {
+            cifraBrokerMainPage.scrollToElement(cifraBrokerMainPage.ResumeForm);
+        });
+        step("Загрузить файл с резюме", () -> {
+            cifraBrokerMainPage.uploadDoc(fileName);
+        });
+        step("Проверить название загруженного файла", () -> {
+            cifraBrokerMainPage.checkFileName(fileName);
         });
     }
 
@@ -41,7 +67,7 @@ public class CifraBrokerMainTests extends TestBase {
     @DisplayName("Авторизация на странице tradernet.ru")
     void successAuthorization() {
         step("Открыть главную страницу", () -> {
-            cifraBrokerMainPage.openCifraBankPage();
+            cifraBrokerMainPage.openCifraBrokerPage();
         });
         step("Перейти на сайт tradernet.ru", () -> {
             cifraBrokerMainPage.goToTradernetRu();
@@ -61,7 +87,7 @@ public class CifraBrokerMainTests extends TestBase {
     @DisplayName("Переход на страницу \"Цифра Банк\"")
     void goToBankWebsite() {
         step("Открыть главную страницу", () -> {
-            cifraBrokerMainPage.openCifraBankPage();
+            cifraBrokerMainPage.openCifraBrokerPage();
         });
         step("Перейти на страницу \"Цифра Банк\"", () -> {
             cifraBrokerMainPage.goToCifraBankRu();
@@ -88,7 +114,7 @@ public class CifraBrokerMainTests extends TestBase {
     @DisplayName("Валидация полей при открытии счета")
     void openModalNewAccount(String validation) {
         step("Открыть главную страницу", () -> {
-            cifraBrokerMainPage.openCifraBankPage();
+            cifraBrokerMainPage.openCifraBrokerPage();
         });
         step("Открыть модалку \"Откройте счёт\"", () -> {
             cifraBrokerMainPage.openModalNewAccount();
@@ -105,7 +131,7 @@ public class CifraBrokerMainTests extends TestBase {
     @DisplayName("Скрытие Cookie Consent Banner")
     void hideCookieConsent() {
         step("Открыть главную страницу", () -> {
-            cifraBrokerMainPage.openCifraBankPage();
+            cifraBrokerMainPage.openCifraBrokerPage();
         });
         step("Проверить наличие Cookie Consent Banner", () -> {
             cifraBrokerMainPage.displayCookieConsent(true);
@@ -125,10 +151,10 @@ public class CifraBrokerMainTests extends TestBase {
     })
 
     @ParameterizedTest(name = "Проверка наличия иконки {0} в футере")
-    @DisplayName("Отображение иконок соцсетей в футере")
+    @DisplayName("Отображение иконок и ссылок соцсетей в футере")
     void checkSocialMedia(String media, String locatorMedia, String urlMedia) {
         step("Открыть главную страницу", () -> {
-            cifraBrokerMainPage.openCifraBankPage();
+            cifraBrokerMainPage.openCifraBrokerPage();
         });
         step("Проверить наличие ссылки на кнопке соцсети " + media, () -> {
             cifraBrokerMainPage.checkSocialMedia(locatorMedia, urlMedia);
