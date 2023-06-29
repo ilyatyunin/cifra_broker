@@ -11,6 +11,8 @@ import ru.ffin.helpers.Attach;
 
 import java.util.Map;
 
+import static com.codeborne.selenide.Selenide.closeWindow;
+
 public class TestBase {
     @BeforeAll
     static void firstConfigure() {
@@ -29,6 +31,9 @@ public class TestBase {
     }
 
     @AfterEach
+    public void tearDown() {
+        closeWindow();
+    }
     void addAttachments() {
         Attach.screenshotAs("Last Screeshot");
         Attach.pageSource();
