@@ -95,11 +95,11 @@ public class CifraBrokerMainTests extends TestBase {
         step("Переключиться на вторую вкладку", () -> {
             cifraBankMainPage.switchSecondTab();
         });
-        step("Проверить правильность URL на странице банка", () -> {
-            cifraBankMainPage.comparisonOfUrl();
-        });
         step("Проверить наличие текста \"Интернет-банк\" в хедере", () -> {
             cifraBankMainPage.checkHeaderText("Интернет-банк");
+        });
+        step("Проверить правильность URL на странице банка", () -> {
+            cifraBankMainPage.comparisonOfUrl();
         });
     }
 
