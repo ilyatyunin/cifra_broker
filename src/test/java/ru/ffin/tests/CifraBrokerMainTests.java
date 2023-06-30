@@ -11,6 +11,7 @@ import ru.ffin.pages.CifraBrokerMainPage;
 
 import static io.qameta.allure.Allure.step;
 
+@DisplayName("Главная страница Цифра Брокер")
 public class CifraBrokerMainTests extends TestBase {
 
     CifraBrokerMainPage cifraBrokerMainPage = new CifraBrokerMainPage();
