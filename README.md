@@ -54,12 +54,12 @@ gradle clean regression_test -Dbrowser="chrome:100.0" -Dbrowser_size="1920x1080"
 * <code>SELENOID_URL</code> – адрес удалённого браузера.
 
 <p align="center">
-<img title="Jenkins Build" src="media/screens/jenkins build.png">
+<img title="Jenkins Build" src="media/screens/JenkinsBuild.png">
 </p>
 
 ## <img width="4%" style="vertical-align:middle" title="Allure Report" src="media/logo/Allure_Report.svg"> Пример Allure-отчета
 <p align="center">
-<img title="Allure Overview" src="media/screens/Allure Overview.png">
+<img title="Allure Overview" src="media/screens/AllureOverview.png">
 </p>
 
 ### Результат выполнения теста
@@ -80,7 +80,7 @@ gradle clean regression_test -Dbrowser="chrome:100.0" -Dbrowser_size="1920x1080"
 - Соотношение ручных/автоматизированных тестов
 - Результаты запусков/прохождения тестов в графике по датам
 <p align="center">
-<img title="Allure TestOps DashBoard" src="media/screens/DashboardsAllureTestOps.png">
+<img title="Allure TestOps DashBoard" src="media/screens/AllureDashboards.png">
 </p>
 
 На вкладке Launches можно увидеть:
