@@ -39,12 +39,13 @@ public class TestBase {
 //        Attach.getVideoUrl();
 //    }
     @AfterEach
-    void addAttachmentsAndCloseWindow() {
+    void tearDown() {
         Attach.screenshotAs("Last Screeshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
         Attach.addVideo();
         Attach.getVideoUrl();
+
         closeWindow();
     }
 }
