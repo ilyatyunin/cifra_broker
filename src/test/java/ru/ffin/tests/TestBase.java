@@ -34,6 +34,7 @@ public class TestBase {
     public void tearDown() {
         closeWindow();
     }
+    @AfterEach
     void addAttachments() {
         Attach.screenshotAs("Last Screeshot");
         Attach.pageSource();
