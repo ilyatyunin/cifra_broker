@@ -30,16 +30,21 @@ public class TestBase {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
 
+//    @AfterEach
+//    void addAttachments() {
+//        Attach.screenshotAs("Last Screeshot");
+//        Attach.pageSource();
+//        Attach.browserConsoleLogs();
+//        Attach.addVideo();
+//        Attach.getVideoUrl();
+//    }
     @AfterEach
-    public void tearDown() {
-        closeWindow();
-    }
-    @AfterEach
-    void addAttachments() {
+    void addAttachmentsAndCloseWindow() {
         Attach.screenshotAs("Last Screeshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
         Attach.addVideo();
         Attach.getVideoUrl();
+        closeWindow();
     }
 }

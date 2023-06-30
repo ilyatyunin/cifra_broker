@@ -9,8 +9,6 @@ import org.junit.jupiter.params.provider.ValueSource;
 import ru.ffin.pages.CifraBankMainPage;
 import ru.ffin.pages.CifraBrokerMainPage;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.sleep;
 import static io.qameta.allure.Allure.step;
 
 public class CifraBrokerMainTests extends TestBase {
