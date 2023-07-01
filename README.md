@@ -11,7 +11,7 @@
 - [Интеграция с Jira](#-интеграция-с-jira)
 - [Уведомления в Telegram](#-уведомления-в-telegram)
 - [Видео пример запуска тестов](#-видео-пример-запуска-тестов)
-## &#129470; U+1f9be  Используемый стек
+## &#129470; Используемый стек
 
 <p align="center">
 <img width="6%" title="IntelliJ IDEA" src="media/logo/Intelij_IDEA.svg">
@@ -28,30 +28,31 @@
 <img width="5%" title="Jira" src="media/logo/Jira.svg">
 </p>
 
-- Тесты в данном проекте написаны на языке <code>Java</code> с использованием фреймворка для тестирования [Selenide](https://selenide.org/)
-- В качестве сборщика был использован - <code>Gradle</code>
-- <code>JUnit 5</code> задействован в качестве фреймворка модульного тестирования
-- При прогоне тестов браузер запускается в [Selenoid](https://aerokube.com/selenoid/)
+- Тесты в проекте написаны на языке <code>Java</code> с использованием фреймворка <code>Selenide</code>
+- В качестве сборщика использован - <code>Gradle</code>
+- В качестве фреймворка модульного тестирования задействован <code>JUnit 5</code>
+- При удаленном прогоне тестов браузер запускается в <code>Selenoid</code>
 - Для удаленного запуска реализована джоба в <code>Jenkins</code> с формированием Allure-отчета и отправкой результатов в <code>Telegram</code> при помощи бота
 - Осуществлена интеграция с <code>Allure TestOps</code> и <code>Jira</code>
 
 
 ## :arrow_forward: Запуск автотестов
 ### Варианты запуска тестов
-- ```regression_test``` -Запуск всех тестов
-- ```smoke_test``` -Запуск тестов smoke
-### Запуск тестов из терминала
+- ```regression_test``` — Запуск всех тестов
+- ```smoke_test``` — Запуск тестов smoke
+- ```main_page_test``` — Запуск тестов Главной страницы
+- ```main_page_test``` — Запуск тестов с Переходом на другие страницы компании
+### Запуск тестов локально из терминала
 ```
-gradle clean regression_test -Dbrowser="chrome:100.0" -Dbrowser_size="1920x1080" -Dbase_url="https://auto.ru" -Dselenoid_url="https://LOGIN:PASS@selenoid.autotests.cloud/wd/hub"
+gradle clean regression_test -Dbrowser=chrome -DbrowserVersion=100.0 -DbrowserSize=1920x1080
 ```
-При выполнении команды тесты запустятся локально.
 
 ## <img width="4%" style="vertical-align:middle" title="Jenkins" src="media/logo/Jenkins.svg"> Сборка в Jenkins
 ### Параметры сборки
-* <code>BROWSER</code> – браузер и его версия. По-умолчанию - <code>chrome:100.0</code>.
-* <code>BROWSER_SIZE</code> – размер окна браузера. По-умолчанию - <code>1920x1080</code>.
-* <code>BASE_URL</code> – url, по которому будет открываться тестируемое приложение. По-умолчанию - <code>https://auto.ru/</code>.
-* <code>SELENOID_URL</code> – адрес удалённого браузера.
+* <code>BROWSER</code> — выбор браузера. Значение по-умолчанию — <code>chrome</code>.
+* <code>BROWSER_VERSION</code> — версия браузера. Значение по-умолчанию — <code>100.0</code>.
+* <code>BROWSER_SIZE</code> — размер окна браузера. Значение по-умолчанию — <code>1920x1080</code>.
+* <code>SELENOID_URL</code> — адрес удалённого браузера. 
 
 <p align="center">
 <img title="Jenkins Build" src="media/screens/JenkinsBuild.png">
@@ -75,7 +76,7 @@ gradle clean regression_test -Dbrowser="chrome:100.0" -Dbrowser_size="1920x1080"
 </p>
 
 ## <img width="4%" style="vertical-align:middle" title="Allure TestOps" src="media/logo/AllureTestOps.svg"> Интеграция с Allure TestOps
-На вкладке Dashboards отображается:
+На вкладке <code>Dashboards</code> отображается:
 - Количество тест-кейсов и их статус
 - Соотношение ручных/автоматизированных тестов
 - Результаты запусков/прохождения тестов в графике по датам
@@ -83,7 +84,7 @@ gradle clean regression_test -Dbrowser="chrome:100.0" -Dbrowser_size="1920x1080"
 <img title="Allure TestOps DashBoard" src="media/screens/AllureDashboards.png">
 </p>
 
-На вкладке Launches можно увидеть:
+На вкладке <code>Launches</code> можно увидеть:
 - Результаты запусков автоматизированных тестов
 - Результаты прохождения ручных тест-кейсов
 <p align="center">
