@@ -111,7 +111,8 @@ gradle clean regression_test -Dbrowser=chrome -DbrowserVersion=100.0 -DbrowserSi
 ### <img width="4%" style="vertical-align:middle" title="Telegram" src="media/logo/Telegram.svg"> Уведомления в Telegram
 После завершения сборки, бот, созданный в <code>Telegram</code>, автоматически обрабатывает и отправляет сообщение с результатом.
 <p align="center">
-<img title="Allure TestOps DashBoard" src="media/screens/Telegram.png">
+<img title="Allure TestOps DashBoard" src="media/screens/Telegram.png" width="50%" height="50%">
+
 </p>
 
 ### <img width="4%" style="vertical-align:middle" title="Selenoid" src="media/logo/Selenoid.svg"> Видео пример запуска тестов
