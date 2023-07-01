@@ -11,7 +11,7 @@
 - [Интеграция с Jira](#-интеграция-с-jira)
 - [Уведомления в Telegram](#-уведомления-в-telegram)
 - [Видео пример запуска тестов](#-видео-пример-запуска-тестов)
-## :computer: Используемый стек
+## &#129470; U+1f9be  Используемый стек
 
 <p align="center">
 <img width="6%" title="IntelliJ IDEA" src="media/logo/Intelij_IDEA.svg">
