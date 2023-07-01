@@ -11,11 +11,15 @@ import ru.ffin.helpers.Attach;
 
 import java.util.Map;
 
+import static com.codeborne.selenide.Selenide.closeWindow;
+
 public class TestBase {
     @BeforeAll
     static void firstConfigure() {
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
-
+        Configuration.browser = System.getProperty("browser", "chrome");
+        Configuration.browserVersion = System.getProperty("browserVersion", "100.0");
+        Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
+        Configuration.remote = System.getProperty("selenoidUrl");
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,
@@ -29,11 +33,13 @@ public class TestBase {
     }
 
     @AfterEach
-    void addAttachments() {
+    void tearDown() {
         Attach.screenshotAs("Last Screeshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
         Attach.addVideo();
         Attach.getVideoUrl();
+
+        closeWindow();
     }
 }

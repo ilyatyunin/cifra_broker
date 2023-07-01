@@ -2,11 +2,14 @@ package ru.ffin.pages;
 
 import com.codeborne.selenide.SelenideElement;
 
+import java.util.ArrayList;
+
 import static com.codeborne.selenide.Condition.href;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byTagAndText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CifraBrokerMainPage {
@@ -18,12 +21,13 @@ public class CifraBrokerMainPage {
     SelenideElement FormOpenAccount = $("[name='formOpenAccount']");
     SelenideElement CookieConsentAlert = $(".b-alert");
     SelenideElement ButtonAcceptCookie = $(byTagAndText("button", "Принять"));
+    public SelenideElement ResumeForm = $(byTagAndText("h3", "Не нашли вакансию?"));
     SelenideElement PlaceHolderEmail = $("[placeholder='Email']");
     SelenideElement PlaceHolderPassword = $("[placeholder='Пароль']");
     SelenideElement ButtonSubmitCredentials = $("[type='submit']");
 
 
-    public CifraBrokerMainPage openCifraBankPage() {
+    public CifraBrokerMainPage openCifraBrokerPage() {
         open("https://cifra-broker.ru/");
         return this;
     }
@@ -40,8 +44,6 @@ public class CifraBrokerMainPage {
         ButtonCifraBank.click();
         return this;
     }
-
-
     public CifraBrokerMainPage openModalNewAccount() {
         ButtonOpenAccount.click();
         return this;
@@ -81,6 +83,12 @@ public class CifraBrokerMainPage {
     }
     public CifraBrokerMainPage sendCredentials() {
         ButtonSubmitCredentials.click();
+        return this;
+    }
+    //    Получение url второй вкладки
+    public CifraBrokerMainPage switchSecondTab() {
+        ArrayList<String> tabs = new ArrayList<>(getWebDriver().getWindowHandles());
+        getWebDriver().switchTo().window(tabs.get(1));
         return this;
     }
 }

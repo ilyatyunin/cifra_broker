@@ -1,7 +1,8 @@
 package ru.ffin.tests;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -11,10 +12,9 @@ import ru.ffin.pages.CifraBrokerMainPage;
 
 import static io.qameta.allure.Allure.step;
 
+@DisplayName("Главная страница Цифра брокер")
 public class CifraBrokerMainTests extends TestBase {
-
     CifraBrokerMainPage cifraBrokerMainPage = new CifraBrokerMainPage();
-    CifraBankMainPage cifraBankMainPage = new CifraBankMainPage();
 
     @ValueSource(strings = {
             "Готовые инвестиционные решения",
@@ -22,61 +22,21 @@ public class CifraBrokerMainTests extends TestBase {
             "Команда экспертов по фондовому рынку",
             "Новости компании"
     })
+    @Tags({
+            @Tag("main"),
+            @Tag("smoke"),
+            @Tag("regression"),
+    })
     @ParameterizedTest(name = "Проверка заголовка {0} на главной странице")
     @DisplayName("Отображение основных разделов на Главной странице")
     void checkPrimarySectionsOnMainPage(String section) {
         step("Открыть главную страницу", () -> {
-            cifraBrokerMainPage.openCifraBankPage();
+            cifraBrokerMainPage.openCifraBrokerPage();
         });
         step("Проверить наличие заголовка " + section, () -> {
             cifraBrokerMainPage.checkSection(section);
         });
     }
-
-    String login = "kupolilya@yandex.kz";
-    String password = "12345678";
-
-    @Test
-    @Disabled("Содержимое страницы авторизации недоступно из-за защиты от роботов")
-    @DisplayName("Авторизация на странице tradernet.ru")
-    void successAuthorization() {
-        step("Открыть главную страницу", () -> {
-            cifraBrokerMainPage.openCifraBankPage();
-        });
-        step("Перейти на сайт tradernet.ru", () -> {
-            cifraBrokerMainPage.goToTradernetRu();
-        });
-        step("Ввести логин", () -> {
-            cifraBrokerMainPage.setLogin(login);
-        });
-        step("Ввести пароль", () -> {
-            cifraBrokerMainPage.setPassword(password);
-        });
-        step("Нажать \"Войти в систему\"", () -> {
-            cifraBrokerMainPage.sendCredentials();
-        });
-    }
-
-    @Test
-    @DisplayName("Переход на страницу \"Цифра Банк\"")
-    void goToBankWebsite() {
-        step("Открыть главную страницу", () -> {
-            cifraBrokerMainPage.openCifraBankPage();
-        });
-        step("Перейти на страницу \"Цифра Банк\"", () -> {
-            cifraBrokerMainPage.goToCifraBankRu();
-        });
-        step("Переключиться на вторую вкладку", () -> {
-            cifraBankMainPage.switchSecondTab();
-        });
-        step("Проверить правильность URL на странице банка", () -> {
-            cifraBankMainPage.comparisonOfUrl();
-        });
-        step("Проверить наличие текста \"Интернет-банк\" в хедере", () -> {
-            cifraBankMainPage.checkHeaderText("Интернет-банк");
-        });
-    }
-
 
     @ValueSource(strings = {
             "Поле обязательно для заполнения",
@@ -84,11 +44,16 @@ public class CifraBrokerMainTests extends TestBase {
             "Телефон введен некорректно. Пример: +7 (901) 123-45-67",
             "Чтобы продолжить, необходимо ваше согласие"
     })
-    @ParameterizedTest
-    @DisplayName("Валидация полей при открытии счета")
+    @Tags({
+            @Tag("main"),
+            @Tag("smoke"),
+            @Tag("regression")
+    })
+    @DisplayName("Валидация полей на странице открытия счета")
+    @ParameterizedTest(name = "Поле {0}")
     void openModalNewAccount(String validation) {
         step("Открыть главную страницу", () -> {
-            cifraBrokerMainPage.openCifraBankPage();
+            cifraBrokerMainPage.openCifraBrokerPage();
         });
         step("Открыть модалку \"Откройте счёт\"", () -> {
             cifraBrokerMainPage.openModalNewAccount();
@@ -101,11 +66,15 @@ public class CifraBrokerMainTests extends TestBase {
         });
     }
 
+    @Tags({
+            @Tag("main"),
+            @Tag("regression")
+    })
     @Test
     @DisplayName("Скрытие Cookie Consent Banner")
-    void hideCookieConsent() {
+    void acceptCookieConsent() {
         step("Открыть главную страницу", () -> {
-            cifraBrokerMainPage.openCifraBankPage();
+            cifraBrokerMainPage.openCifraBrokerPage();
         });
         step("Проверить наличие Cookie Consent Banner", () -> {
             cifraBrokerMainPage.displayCookieConsent(true);
@@ -123,12 +92,15 @@ public class CifraBrokerMainTests extends TestBase {
             "VK, .icon-vkontakte, https://vk.com/cifra.broker",
             "YouTube, .icon-youtube-play, https://www.youtube.com/channel/UCov52Rv9qZTkVu9WERSwccg"
     })
-
-    @ParameterizedTest(name = "Проверка наличия иконки {0} в футере")
-    @DisplayName("Отображение иконок соцсетей в футере")
+    @DisplayName("Проверка наличия в футере иконки")
+    @Tags({
+            @Tag("main"),
+            @Tag("regression")
+    })
+    @ParameterizedTest(name = "{0}")
     void checkSocialMedia(String media, String locatorMedia, String urlMedia) {
         step("Открыть главную страницу", () -> {
-            cifraBrokerMainPage.openCifraBankPage();
+            cifraBrokerMainPage.openCifraBrokerPage();
         });
         step("Проверить наличие ссылки на кнопке соцсети " + media, () -> {
             cifraBrokerMainPage.checkSocialMedia(locatorMedia, urlMedia);

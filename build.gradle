@@ -32,6 +32,31 @@ dependencies {
     )
 }
 
+task smoke_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags("smoke")
+    }
+}
+
+task regression_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags("regression")
+    }
+}
+
+task main_page_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags("main")
+    }
+}
+
+task transition_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags("transition")
+    }
+}
+
 test {
     useJUnitPlatform()
+    systemProperties(System.getProperties())
 }

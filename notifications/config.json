@@ -1,0 +1,17 @@
+{
+  "base": {
+    "logo": "https://cifra-broker.ru/assets/img/new_logo.svg",
+    "project": "${JOB_BASE_NAME}",
+    "environment": "https://cifra-broker.ru/",
+    "comment": "Tests by @is_tyunin",
+    "reportLink": "${BUILD_URL}",
+    "language": "ru",
+    "allureFolder": "allure-report/",
+    "enableChart": true
+  },
+  "telegram": {
+    "token": "6031896269:AAH1GEQ_tVQZK9QmfNS2EJrZndozabnvL30",
+    "chat": "-1001643698344",
+    "replyTo": ""
+  }
+}
