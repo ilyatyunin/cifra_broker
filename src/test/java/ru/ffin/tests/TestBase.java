@@ -18,8 +18,8 @@ public class TestBase {
     static void firstConfigure() {
 //        Configuration.remote = System.getProperty("remote", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
         String[] browser = System.getProperty("browser", "chrome:100.0").split(":");
-        Configuration.browser = browser[0];
-        Configuration.browserVersion = browser[1];
+//        Configuration.browser = browser[0];
+//        Configuration.browserVersion = browser[1];
         Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
         Configuration.remote = System.getProperty("selenoidUrl");
         DesiredCapabilities capabilities = new DesiredCapabilities();
