@@ -1,8 +1,6 @@
 package ru.ffin.tests;
 
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import ru.ffin.pages.CifraBankMainPage;
 import ru.ffin.pages.CifraBrokerMainPage;
 import ru.ffin.pages.JobCifraBrokerPage;
@@ -16,6 +14,10 @@ public class TransitionToCifraWebSitesTests extends TestBase {
     JobCifraBrokerPage jobCifraBrokerPage = new JobCifraBrokerPage();
     String fileName = "resume.pdf";
     @DisplayName("Файл в формате .pdf")
+    @Tags({
+            @Tag("transition"),
+            @Tag("regression")
+    })
     @Test
     void uploadPdfToResumeForm() {
         step("Открыть главную страницу", () -> {
@@ -42,6 +44,11 @@ public class TransitionToCifraWebSitesTests extends TestBase {
     String password = "12345678";
 
     @DisplayName("Авторизация на сайте tradernet.ru")
+    @Tags({
+            @Tag("transition"),
+            @Tag("smoke"),
+            @Tag("regression")
+    })
     @Test
     @Disabled("Содержимое страницы авторизации недоступно из-за защиты от роботов")
     void successAuthorization() {
@@ -63,6 +70,11 @@ public class TransitionToCifraWebSitesTests extends TestBase {
     }
 
     @DisplayName("Переход на страницу \"Цифра Банк\"")
+    @Tags({
+            @Tag("transition"),
+            @Tag("smoke"),
+            @Tag("regression")
+    })
     @Test
     void goToBankWebsite() {
         step("Открыть главную страницу", () -> {

@@ -1,6 +1,8 @@
 package ru.ffin.tests;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -13,13 +15,17 @@ import static io.qameta.allure.Allure.step;
 @DisplayName("Главная страница Цифра брокер")
 public class CifraBrokerMainTests extends TestBase {
     CifraBrokerMainPage cifraBrokerMainPage = new CifraBrokerMainPage();
-    CifraBankMainPage cifraBankMainPage = new CifraBankMainPage();
 
     @ValueSource(strings = {
             "Готовые инвестиционные решения",
             "Широкие возможности для достижения ваших целей",
             "Команда экспертов по фондовому рынку",
             "Новости компании"
+    })
+    @Tags({
+            @Tag("main"),
+            @Tag("smoke"),
+            @Tag("regression"),
     })
     @ParameterizedTest(name = "Проверка заголовка {0} на главной странице")
     @DisplayName("Отображение основных разделов на Главной странице")
@@ -38,6 +44,11 @@ public class CifraBrokerMainTests extends TestBase {
             "Телефон введен некорректно. Пример: +7 (901) 123-45-67",
             "Чтобы продолжить, необходимо ваше согласие"
     })
+    @Tags({
+            @Tag("main"),
+            @Tag("smoke"),
+            @Tag("regression")
+    })
     @DisplayName("Валидация полей на странице открытия счета")
     @ParameterizedTest(name = "Поле {0}")
     void openModalNewAccount(String validation) {
@@ -55,6 +66,10 @@ public class CifraBrokerMainTests extends TestBase {
         });
     }
 
+    @Tags({
+            @Tag("main"),
+            @Tag("regression")
+    })
     @Test
     @DisplayName("Скрытие Cookie Consent Banner")
     void acceptCookieConsent() {
@@ -78,6 +93,10 @@ public class CifraBrokerMainTests extends TestBase {
             "YouTube, .icon-youtube-play, https://www.youtube.com/channel/UCov52Rv9qZTkVu9WERSwccg"
     })
     @DisplayName("Проверка наличия в футере иконки")
+    @Tags({
+            @Tag("main"),
+            @Tag("regression")
+    })
     @ParameterizedTest(name = "{0}")
     void checkSocialMedia(String media, String locatorMedia, String urlMedia) {
         step("Открыть главную страницу", () -> {
