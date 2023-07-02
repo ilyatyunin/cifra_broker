@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
-import ru.ffin.pages.CifraBankMainPage;
 import ru.ffin.pages.CifraBrokerMainPage;
 
 import static io.qameta.allure.Allure.step;
@@ -55,7 +54,7 @@ public class CifraBrokerMainTests extends TestBase {
         step("Открыть главную страницу", () -> {
             cifraBrokerMainPage.openCifraBrokerPage();
         });
-        step("Открыть модалку \"Откройте счёт\"", () -> {
+        step("Перейти к модальному окну \"Откройте счёт\"", () -> {
             cifraBrokerMainPage.openModalNewAccount();
         });
         step("Отправить пустые поля на проверку", () -> {

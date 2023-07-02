@@ -30,7 +30,7 @@ public class TransitionToCifraWebSitesTests extends TestBase {
             cifraBrokerMainPage.switchSecondTab();
         });
         step("Скролл до формы с загрузкой файла", () -> {
-            jobCifraBrokerPage.scrollToElement(cifraBrokerMainPage.ResumeForm);
+            jobCifraBrokerPage.scrollToElement(cifraBrokerMainPage.resumeForm);
         });
         step("Загрузить файл с резюме", () -> {
             jobCifraBrokerPage.uploadDoc(fileName);
