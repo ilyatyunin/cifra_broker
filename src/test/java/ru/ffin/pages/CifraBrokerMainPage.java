@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import static com.codeborne.selenide.Condition.href;
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selectors.byTagAndText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -28,7 +29,7 @@ public class CifraBrokerMainPage {
 
 
     public CifraBrokerMainPage openCifraBrokerPage() {
-        open("https://cifra-broker.ru/");
+        open(baseUrl);
         return this;
     }
     public CifraBrokerMainPage checkSection(String section) {
