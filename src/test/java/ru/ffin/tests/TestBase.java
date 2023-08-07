@@ -13,7 +13,6 @@ import ru.ffin.config.*;
 import java.util.Map;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
-import static com.codeborne.selenide.Selenide.closeWindow;
 import static org.aeonbits.owner.ConfigFactory.*;
 
 public class TestBase {
@@ -52,7 +51,6 @@ public class TestBase {
             Attach.addVideo();
         }
 
-//        closeWindow();
         closeWebDriver();
     }
 }

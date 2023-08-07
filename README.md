@@ -76,7 +76,7 @@ gradle clean test
 * <code>BROWSER</code> — выбор браузера. Значение по-умолчанию — <code>chrome</code>.
 * <code>BROWSER_VERSION</code> — версия браузера. Значение по-умолчанию — <code>100.0</code>.
 * <code>BROWSER_SIZE</code> — размер окна браузера. Значение по-умолчанию — <code>1920x1080</code>.
-* <code>BASE_URL</code> – url, по которому будет открываться тестируемое приложение. По-умолчанию - <code>https://auto.ru/</code>.
+* <code>BASE_URL</code> – url, по которому будет открываться тестируемое приложение. По-умолчанию - <code>https://cifra-broker.ru/</code>.
 * <code>SELENOID_URL</code> – адрес удалённого браузера.
 * <code>SELENOID_LOGIN</code> – логин для удаленного запуска тестов.
 * <code>SELENOID_PASSWORD</code> – пароль для удаленного запуска тестов.
