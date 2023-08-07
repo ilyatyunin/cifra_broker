@@ -71,7 +71,7 @@
 gradle clean regression_test -Dbrowser=chrome -DbrowserVersion=100.0 -DbrowserSize=1920x1080
 ```
 
-## <img width="4%" style="vertical-align:middle" title="Jenkins" src="media/logo/Jenkins.svg"> Сборка в Jenkins
+## <img width="4%" style="vertical-align:middle" title="Jenkins" src="media/logo/Jenkins.svg"> [Сборка в Jenkins](https://jenkins.autotests.cloud/job/cifra_broker/)
 ### Параметры сборки
 * <code>BROWSER</code> — выбор браузера. Значение по-умолчанию — <code>chrome</code>.
 * <code>BROWSER_VERSION</code> — версия браузера. Значение по-умолчанию — <code>100.0</code>.
@@ -82,7 +82,7 @@ gradle clean regression_test -Dbrowser=chrome -DbrowserVersion=100.0 -DbrowserSi
 <img title="Jenkins Build" src="media/screens/JenkinsBuild.png">
 </p>
 
-## <img width="4%" style="vertical-align:middle" title="Allure Report" src="media/logo/Allure_Report.svg"> Пример Allure-отчета
+## <img width="4%" style="vertical-align:middle" title="Allure Report" src="media/logo/Allure_Report.svg"> [Пример Allure-отчета](https://jenkins.autotests.cloud/job/cifra_broker/39/allure/)
 <p align="center">
 <img title="Allure Overview" src="media/screens/AllureOverview.png">
 </p>
@@ -99,7 +99,7 @@ gradle clean regression_test -Dbrowser=chrome -DbrowserVersion=100.0 -DbrowserSi
 <img title="Test Results in Alure" src="media/screens/AllureSuites.png">
 </p>
 
-## <img width="4%" style="vertical-align:middle" title="Allure TestOps" src="media/logo/AllureTestOps.svg"> Интеграция с Allure TestOps
+## <img width="4%" style="vertical-align:middle" title="Allure TestOps" src="media/logo/AllureTestOps.svg"> [Интеграция с Allure TestOps](https://allure.autotests.cloud/project/3448/launches)
 На вкладке <code>Dashboards</code> отображается:
 - Количество тест-кейсов и их статус
 - Соотношение ручных/автоматизированных тестов
@@ -126,7 +126,7 @@ gradle clean regression_test -Dbrowser=chrome -DbrowserVersion=100.0 -DbrowserSi
 <img title="Allure TestOps DashBoard" src="media/screens/AllureTestCases.png">
 </p>
 
-## <img width="4%" style="vertical-align:middle" title="Jira" src="media/logo/Jira.svg"> Интеграция с Jira
+## <img width="4%" style="vertical-align:middle" title="Jira" src="media/logo/Jira.svg"> [Интеграция с Jira](https://jira.autotests.cloud/browse/HOMEWORK-770)
 Реализована интеграция <code>Allure TestOps</code> с <code>Jira</code>. В задаче отображаются прикреплённые к ней тест-кейсы, а также результаты запусков/прохождения тестов.
 <p align="center">
 <img title="Allure TestOps DashBoard" src="media/screens/Jira.png">
@@ -139,7 +139,7 @@ gradle clean regression_test -Dbrowser=chrome -DbrowserVersion=100.0 -DbrowserSi
 
 </p>
 
-### <img width="4%" style="vertical-align:middle" title="Selenoid" src="media/logo/Selenoid.svg"> Видео пример запуска тестов
+### <img width="4%" style="vertical-align:middle" title="Selenoid" src="media/logo/Selenoid.svg"> Видео пример запуска теста
 <p align="center">
   <img title="Selenoid Video" src="media/screens/video.gif">
 </p>
