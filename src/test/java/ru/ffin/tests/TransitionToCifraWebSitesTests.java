@@ -12,12 +12,11 @@ public class TransitionToCifraWebSitesTests extends TestBase {
     CifraBrokerMainPage cifraBrokerMainPage = new CifraBrokerMainPage();
     CifraBankMainPage cifraBankMainPage = new CifraBankMainPage();
     JobCifraBrokerPage jobCifraBrokerPage = new JobCifraBrokerPage();
+
     String fileName = "resume.pdf";
-    @DisplayName("Загрузка файла в формате .pdf")
-    @Tags({
-            @Tag("transition")
-    })
     @Test
+    @Tag("transition")
+    @DisplayName("Загрузка файла в формате .pdf")
     void uploadPdfToResumeForm() {
         step("Открыть главную страницу", () -> {
             cifraBrokerMainPage.openCifraBrokerPage();
@@ -39,12 +38,12 @@ public class TransitionToCifraWebSitesTests extends TestBase {
         });
     }
 
-    @DisplayName("Переход на страницу \"Цифра Банк\"")
+    @Test
     @Tags({
             @Tag("transition"),
             @Tag("smoke")
     })
-    @Test
+    @DisplayName("Переход на страницу \"Цифра Банк\"")
     void goToBankWebsite() {
         step("Открыть главную страницу", () -> {
             cifraBrokerMainPage.openCifraBrokerPage();

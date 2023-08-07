@@ -21,11 +21,11 @@ public class CifraBrokerMainTests extends TestBase {
             "Команда экспертов по фондовому рынку",
             "Новости компании"
     })
+    @ParameterizedTest(name = "Проверка заголовка {0} на главной странице")
     @Tags({
             @Tag("main"),
             @Tag("smoke")
     })
-    @ParameterizedTest(name = "Проверка заголовка {0} на главной странице")
     @DisplayName("Отображение основных разделов на Главной странице")
     void checkPrimarySectionsOnMainPage(String section) {
         step("Открыть главную страницу", () -> {
@@ -42,12 +42,12 @@ public class CifraBrokerMainTests extends TestBase {
             "Телефон введен некорректно. Пример: +7 (901) 123-45-67",
             "Чтобы продолжить, необходимо ваше согласие"
     })
+    @ParameterizedTest(name = "Поле {0}")
     @Tags({
             @Tag("main"),
             @Tag("smoke")
     })
     @DisplayName("Валидация полей на странице открытия счета")
-    @ParameterizedTest(name = "Поле {0}")
     void openModalNewAccount(String validation) {
         step("Открыть главную страницу", () -> {
             cifraBrokerMainPage.openCifraBrokerPage();
@@ -63,10 +63,8 @@ public class CifraBrokerMainTests extends TestBase {
         });
     }
 
-    @Tags({
-            @Tag("main")
-    })
     @Test
+    @Tag("main")
     @DisplayName("Скрытие Cookie Consent Banner")
     void acceptCookieConsent() {
         step("Открыть главную страницу", () -> {
@@ -88,11 +86,9 @@ public class CifraBrokerMainTests extends TestBase {
             "VK, .icon-vkontakte, https://vk.com/cifra.broker",
             "YouTube, .icon-youtube-play, https://www.youtube.com/channel/UCov52Rv9qZTkVu9WERSwccg"
     })
-    @DisplayName("Проверка наличия в футере иконки")
-    @Tags({
-            @Tag("main")
-    })
     @ParameterizedTest(name = "{0}")
+    @Tag("main")
+    @DisplayName("Проверка наличия в футере иконки")
     void checkSocialMedia(String media, String locatorMedia, String urlMedia) {
         step("Открыть главную страницу", () -> {
             cifraBrokerMainPage.openCifraBrokerPage();
