@@ -23,8 +23,7 @@ public class CifraBrokerMainTests extends TestBase {
     })
     @Tags({
             @Tag("main"),
-            @Tag("smoke"),
-            @Tag("regression"),
+            @Tag("smoke")
     })
     @ParameterizedTest(name = "Проверка заголовка {0} на главной странице")
     @DisplayName("Отображение основных разделов на Главной странице")
@@ -45,8 +44,7 @@ public class CifraBrokerMainTests extends TestBase {
     })
     @Tags({
             @Tag("main"),
-            @Tag("smoke"),
-            @Tag("regression")
+            @Tag("smoke")
     })
     @DisplayName("Валидация полей на странице открытия счета")
     @ParameterizedTest(name = "Поле {0}")
@@ -66,8 +64,7 @@ public class CifraBrokerMainTests extends TestBase {
     }
 
     @Tags({
-            @Tag("main"),
-            @Tag("regression")
+            @Tag("main")
     })
     @Test
     @DisplayName("Скрытие Cookie Consent Banner")
@@ -93,8 +90,7 @@ public class CifraBrokerMainTests extends TestBase {
     })
     @DisplayName("Проверка наличия в футере иконки")
     @Tags({
-            @Tag("main"),
-            @Tag("regression")
+            @Tag("main")
     })
     @ParameterizedTest(name = "{0}")
     void checkSocialMedia(String media, String locatorMedia, String urlMedia) {

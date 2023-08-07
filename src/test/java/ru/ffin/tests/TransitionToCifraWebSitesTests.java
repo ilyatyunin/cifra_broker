@@ -15,8 +15,7 @@ public class TransitionToCifraWebSitesTests extends TestBase {
     String fileName = "resume.pdf";
     @DisplayName("Файл в формате .pdf")
     @Tags({
-            @Tag("transition"),
-            @Tag("regression")
+            @Tag("transition")
     })
     @Test
     void uploadPdfToResumeForm() {
@@ -46,8 +45,7 @@ public class TransitionToCifraWebSitesTests extends TestBase {
     @DisplayName("Авторизация на сайте tradernet.ru")
     @Tags({
             @Tag("transition"),
-            @Tag("smoke"),
-            @Tag("regression")
+            @Tag("smoke")
     })
     @Test
     @Disabled("Содержимое страницы авторизации недоступно из-за защиты от роботов")
@@ -72,8 +70,7 @@ public class TransitionToCifraWebSitesTests extends TestBase {
     @DisplayName("Переход на страницу \"Цифра Банк\"")
     @Tags({
             @Tag("transition"),
-            @Tag("smoke"),
-            @Tag("regression")
+            @Tag("smoke")
     })
     @Test
     void goToBankWebsite() {
