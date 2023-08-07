@@ -12,6 +12,7 @@ import ru.ffin.helpers.Attach;
 import ru.ffin.config.*;
 import java.util.Map;
 
+import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.closeWindow;
 import static org.aeonbits.owner.ConfigFactory.*;
 
@@ -47,9 +48,11 @@ public class TestBase {
         Attach.screenshotAs("Last Screeshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
-        Attach.addVideo();
-        Attach.getVideoUrl();
+        if (selenoidConfig.url() != null && selenoidConfig.password() != null && selenoidConfig.login() != null) {
+            Attach.addVideo();
+        }
 
-        closeWindow();
+//        closeWindow();
+        closeWebDriver();
     }
 }

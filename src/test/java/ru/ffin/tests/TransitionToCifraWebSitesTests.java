@@ -39,34 +39,6 @@ public class TransitionToCifraWebSitesTests extends TestBase {
         });
     }
 
-    String login = "kupolilya@yandex.kz";
-    String password = "12345678";
-
-    @DisplayName("Авторизация на сайте tradernet.ru")
-    @Tags({
-            @Tag("transition"),
-            @Tag("smoke")
-    })
-    @Test
-    @Disabled("Содержимое страницы авторизации недоступно из-за защиты от роботов")
-    void successAuthorization() {
-        step("Открыть главную страницу", () -> {
-            cifraBrokerMainPage.openCifraBrokerPage();
-        });
-        step("Перейти на сайт tradernet.ru", () -> {
-            cifraBrokerMainPage.goToTradernetRu();
-        });
-        step("Ввести логин", () -> {
-            cifraBrokerMainPage.setLogin(login);
-        });
-        step("Ввести пароль", () -> {
-            cifraBrokerMainPage.setPassword(password);
-        });
-        step("Нажать \"Войти в систему\"", () -> {
-            cifraBrokerMainPage.sendCredentials();
-        });
-    }
-
     @DisplayName("Переход на страницу \"Цифра Банк\"")
     @Tags({
             @Tag("transition"),

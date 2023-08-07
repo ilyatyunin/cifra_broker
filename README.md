@@ -68,7 +68,7 @@
 - ```main_page_test``` — Запуск тестов с Переходом на другие страницы компании
 ### Запуск тестов локально из терминала
 ```
-gradle clean regression_test -Dbrowser=chrome -DbrowserVersion=100.0 -DbrowserSize=1920x1080
+gradle clean test
 ```
 
 ## <img width="4%" style="vertical-align:middle" title="Jenkins" src="media/logo/Jenkins.svg"> [Сборка в Jenkins](https://jenkins.autotests.cloud/job/cifra_broker/)
@@ -76,7 +76,10 @@ gradle clean regression_test -Dbrowser=chrome -DbrowserVersion=100.0 -DbrowserSi
 * <code>BROWSER</code> — выбор браузера. Значение по-умолчанию — <code>chrome</code>.
 * <code>BROWSER_VERSION</code> — версия браузера. Значение по-умолчанию — <code>100.0</code>.
 * <code>BROWSER_SIZE</code> — размер окна браузера. Значение по-умолчанию — <code>1920x1080</code>.
-* <code>SELENOID_URL</code> — адрес удалённого браузера. 
+* <code>BASE_URL</code> – url, по которому будет открываться тестируемое приложение. По-умолчанию - <code>https://auto.ru/</code>.
+* <code>SELENOID_URL</code> – адрес удалённого браузера.
+* <code>SELENOID_LOGIN</code> – логин для удаленного запуска тестов.
+* <code>SELENOID_PASSWORD</code> – пароль для удаленного запуска тестов.
 
 <p align="center">
 <img title="Jenkins Build" src="media/screens/JenkinsBuild.png">

@@ -6,10 +6,11 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 
 public class JobCifraBrokerPage {
-    SelenideElement linkAbout = $("[href='/about']");
-    SelenideElement linkJob = $(".submenu-wrap [href='https://job.cifra-broker.ru/']");
-    SelenideElement linkUploadDoc = $(".footer-green [type='file']");
-    SelenideElement linkFileName = $(".footer-green .custom-file-upload__value");
+    private SelenideElement
+            linkAbout = $("[href='/about']"),
+            linkJob = $(".submenu-wrap [href='https://job.cifra-broker.ru/']"),
+            linkUploadDoc = $(".footer-green [type='file']"),
+            linkFileName = $(".footer-green .custom-file-upload__value");
 
 
     public JobCifraBrokerPage goToJobCifraBrokerRu() {
