@@ -139,7 +139,7 @@ gradle clean regression_test -Dbrowser=chrome -DbrowserVersion=100.0 -DbrowserSi
 
 </p>
 
-### <img width="4%" style="vertical-align:middle" title="Selenoid" src="media/logo/Selenoid.svg"> Видео пример запуска теста
+### <img width="4%" style="vertical-align:middle" title="Selenoid" src="media/logo/Selenoid.svg"> Видео пример запуска теста с загрузкой файла в формате .pdf
 <p align="center">
   <img title="Selenoid Video" src="media/screens/video.gif">
 </p>

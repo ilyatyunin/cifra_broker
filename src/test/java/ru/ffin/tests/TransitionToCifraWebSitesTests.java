@@ -13,7 +13,7 @@ public class TransitionToCifraWebSitesTests extends TestBase {
     CifraBankMainPage cifraBankMainPage = new CifraBankMainPage();
     JobCifraBrokerPage jobCifraBrokerPage = new JobCifraBrokerPage();
     String fileName = "resume.pdf";
-    @DisplayName("Файл в формате .pdf")
+    @DisplayName("Загрузка файла в формате .pdf")
     @Tags({
             @Tag("transition")
     })
