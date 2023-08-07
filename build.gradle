@@ -3,6 +3,11 @@ plugins {
     id 'io.qameta.allure' version '2.11.2'
 }
 
+compileTestJava {
+    options.encoding = 'UTF-8'
+}
+
+
 group 'ru.ffin'
 version '1.0-SNAPSHOT'
 
@@ -28,7 +33,8 @@ dependencies {
     testImplementation(
             'org.junit.jupiter:junit-jupiter:5.9.3',
             'com.codeborne:selenide:6.13.1',
-            'io.qameta.allure:allure-selenide:2.22.2'
+            'io.qameta.allure:allure-selenide:2.22.2',
+            'org.aeonbits.owner:owner:1.0.4'
     )
 }
 
